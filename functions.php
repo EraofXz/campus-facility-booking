@@ -5,10 +5,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
 /**
  * 1. Sanitization Function
-    * Purpose: Sanitizing user input to prevent XSS and SQL injection attacks.
-    */
+ * Purpose: Sanitizing user input to prevent XSS attacks.
+ */
 function sanitize($data) {
-    $data = trim($data);
+    $data = trim((string)$data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
